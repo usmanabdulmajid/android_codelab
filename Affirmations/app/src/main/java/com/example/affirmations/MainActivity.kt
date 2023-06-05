@@ -2,6 +2,7 @@ package com.example.affirmations
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.affirmations.adapter.ItemAdapter
@@ -15,6 +16,7 @@ class MainActivity : AppCompatActivity() {
         val datasource = Datasource()
         val affirmations = datasource.loadAffirmations()
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
+        recyclerView.layoutManager = GridLayoutManager(this, 2)
         recyclerView.adapter = ItemAdapter(this, affirmations)
         recyclerView.setHasFixedSize(true)
 
